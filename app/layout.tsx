@@ -11,7 +11,6 @@ const inter = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Portfolio | Designer & Developer",
   description: "Crafting purpose driven experiences that inspire & engage",
-    generator: 'v0.dev'
 }
 export default function RootLayout({
   children,
