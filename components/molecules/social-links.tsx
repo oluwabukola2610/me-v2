@@ -29,7 +29,7 @@ export function SocialLinks() {
         label="Instagram"
         delay={0.3}
       />
-      <SocialLink href="/resume.pdf" icon={null} label="Resume" delay={0.5} />
+<SocialLink href="/resume.pdf" icon={null} label="Resume" delay={0.5} download />
     </div>
   );
 }

@@ -1,30 +1,27 @@
-"use client"
-
-import type React from "react"
-
-import { motion } from "framer-motion"
-
 interface SocialLinkProps {
   href: string
   icon: React.ReactNode
   label: string
   delay?: number
+  download?: boolean
 }
 
-export function SocialLink({ href, icon, label, delay = 0 }: SocialLinkProps) {
+export function SocialLink({ href, icon, label, delay = 0, download = false }: SocialLinkProps) {
   return (
     <motion.a
       href={href}
-      target="_blank"
+      target={download ? "_self" : "_blank"} // open in same tab if downloading
       rel="noopener noreferrer"
       className="group flex items-center gap-1 text-sm text-gray-400 transition-colors hover:text-green-400"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay }}
       aria-label={label}
+      download={download}
     >
       <span className="uppercase">{label}</span>
       <motion.span className="inline-block" initial={{ x: 0 }} whileHover={{ x: 3 }} transition={{ duration: 0.2 }}>
+        {/* arrow icon */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
