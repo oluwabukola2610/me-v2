@@ -5,7 +5,7 @@ interface SocialLinkProps {
   delay?: number
   download?: boolean
 }
-
+import { motion } from "framer-motion"
 export function SocialLink({ href, icon, label, delay = 0, download = false }: SocialLinkProps) {
   return (
     <motion.a
