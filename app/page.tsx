@@ -3,9 +3,9 @@ import { Hero } from "@/components/organisms/hero";
 import { Skills } from "@/components/organisms/skills";
 import { Expertise } from "@/components/organisms/expertise";
 import { About } from "@/components/organisms/about";
-import { Projects } from "@/components/organisms/projects";
 import { Contact } from "@/components/organisms/contact";
 import { Footer } from "@/components/organisms/footer";
+import Projects from "@/components/organisms/projects";
 
 export default function Home() {
   return (
