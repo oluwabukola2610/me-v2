@@ -24,7 +24,6 @@ export function SocialLink({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay }}
       aria-label={label}
-      download={download}
     >
       <span className="uppercase">{label}</span>
       <motion.span
