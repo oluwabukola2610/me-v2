@@ -23,13 +23,14 @@ export function SocialLinks() {
         label="Instagram"
         delay={0.3}
       />
-      <SocialLink
-        href="https://drive.google.com/file/d/1WsfenyLvI2xiMsfDep83cC_82ecgfg-s/view"
+       <SocialLink
+        href="/assets/MudashirCV.pdf"
         icon={null}
-        label="Instagram"
-        delay={0.3}
+        label="Resume"
+        delay={0.5}
+        download
       />
-<SocialLink href="/resume.pdf" icon={null} label="Resume" delay={0.5} download />
+      
     </div>
   );
 }

@@ -1,17 +1,24 @@
 interface SocialLinkProps {
-  href: string
-  icon: React.ReactNode
-  label: string
-  delay?: number
-  download?: boolean
+  href: string;
+  icon: React.ReactNode;
+  label: string;
+  delay?: number;
+  download?: boolean;
 }
-import { motion } from "framer-motion"
-export function SocialLink({ href, icon, label, delay = 0, download = false }: SocialLinkProps) {
+import { motion } from "framer-motion";
+export function SocialLink({
+  href,
+  icon,
+  label,
+  delay = 0,
+  download = false,
+}: SocialLinkProps) {
   return (
     <motion.a
       href={href}
-      target={download ? "_self" : "_blank"} // open in same tab if downloading
       rel="noopener noreferrer"
+      download="mudashir roheemoh Resume.pdf"
+      target="_blank"
       className="group flex items-center gap-1 text-sm text-gray-400 transition-colors hover:text-green-400"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
@@ -20,7 +27,12 @@ export function SocialLink({ href, icon, label, delay = 0, download = false }: S
       download={download}
     >
       <span className="uppercase">{label}</span>
-      <motion.span className="inline-block" initial={{ x: 0 }} whileHover={{ x: 3 }} transition={{ duration: 0.2 }}>
+      <motion.span
+        className="inline-block"
+        initial={{ x: 0 }}
+        whileHover={{ x: 3 }}
+        transition={{ duration: 0.2 }}
+      >
         {/* arrow icon */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -39,5 +51,5 @@ export function SocialLink({ href, icon, label, delay = 0, download = false }: S
         </svg>
       </motion.span>
     </motion.a>
-  )
+  );
 }
