@@ -31,17 +31,19 @@ export function About() {
             </svg>
           }
         />
-
         <ScrollReveal
-          baseOpacity={2}
+          baseOpacity={0.1}
           enableBlur={true}
-          baseRotation={-3}
-          blurStrength={12}
+          baseRotation={-2}
+          blurStrength={8}
+          textClassName="text-gray-400 text-base leading-relaxed"
         >
-          I'm Roheemoh, a frontend engineer with 3+ years of experience crafting
-          high-quality, impactful digital experiences. From real-time apps to
-          seamless UI, I blend design and development to build solutions that
-          drive results.
+          I'm Roheemoh, a dedicated Frontend Developer with a strong focus on
+          React.js and a growing interest in backend technologies. I thrive at
+          the intersection of design and functionality, turning creative ideas
+          into smooth, responsive, and accessible user experiences. Clean code,
+          performance optimization, and a sharp eye for detail are my standards
+          because every pixel and every line of code matters.
         </ScrollReveal>
       </div>
     </section>

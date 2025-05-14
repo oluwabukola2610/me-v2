@@ -6,6 +6,7 @@ import { About } from "@/components/organisms/about";
 import { Contact } from "@/components/organisms/contact";
 import { Footer } from "@/components/organisms/footer";
 import Projects from "@/components/organisms/projects";
+import { Experience } from "@/components/organisms/experience";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Skills />
       <About />
       <Expertise />
+      <Experience />
       <Projects />
       <Contact />
       <Footer />

@@ -142,7 +142,7 @@ export function Expertise() {
         />
 
         <motion.h2
-          className="mb-12 text-4xl font-bold"
+          className="mb-12 text-2xl font-bold"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -165,12 +165,12 @@ export function Expertise() {
               isOpen={openItem === "Mobile Development"}
               onClick={() => toggleItem("Mobile Development")}
             />
-            <ExpertiseItem
+            {/* <ExpertiseItem
               title="Content Creator"
               icon={<Video size={18} />}
               isOpen={openItem === "Content Creator"}
               onClick={() => toggleItem("Content Creator")}
-            />
+            /> */}
           </div>
           <div className="hidden md:block">
             <motion.div

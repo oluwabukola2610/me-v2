@@ -1,8 +1,10 @@
-import { useEffect, useRef, useMemo } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+"use client"
 
-gsap.registerPlugin(ScrollTrigger);
+import { useEffect, useRef, useMemo } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const ScrollReveal = ({
   children,
@@ -12,32 +14,29 @@ const ScrollReveal = ({
   baseRotation = 0,
   blurStrength = 4,
   containerClassName = "",
-  textClassName = "text-xl",
+  textClassName = "text-lg",
   rotationEnd = "bottom bottom",
   wordAnimationEnd = "bottom bottom",
 }: any) => {
-  const containerRef = useRef(null);
+  const containerRef = useRef(null)
 
   const splitText = useMemo(() => {
-    const text = typeof children === "string" ? children : "";
+    const text = typeof children === "string" ? children : ""
     return text.split(/(\s+)/).map((word, index) => {
-      if (word.match(/^\s+$/)) return word;
+      if (word.match(/^\s+$/)) return word
       return (
         <span className="word" key={index}>
           {word}
         </span>
-      );
-    });
-  }, [children]);
+      )
+    })
+  }, [children])
 
   useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
+    const el = containerRef.current
+    if (!el) return
 
-    const scroller =
-      scrollContainerRef && scrollContainerRef.current
-        ? scrollContainerRef.current
-        : window;
+    const scroller = scrollContainerRef && scrollContainerRef.current ? scrollContainerRef.current : window
 
     gsap.fromTo(
       el,
@@ -52,10 +51,10 @@ const ScrollReveal = ({
           end: rotationEnd,
           scrub: true,
         },
-      }
-    );
+      },
+    )
 
-    const wordElements = (el as HTMLElement).querySelectorAll(".word");
+    const wordElements = (el as HTMLElement).querySelectorAll(".word")
 
     gsap.fromTo(
       wordElements,
@@ -72,8 +71,8 @@ const ScrollReveal = ({
           end: wordAnimationEnd,
           scrub: true,
         },
-      }
-    );
+      },
+    )
 
     if (enableBlur) {
       gsap.fromTo(
@@ -90,28 +89,20 @@ const ScrollReveal = ({
             end: wordAnimationEnd,
             scrub: true,
           },
-        }
-      );
+        },
+      )
     }
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, [
-    scrollContainerRef,
-    enableBlur,
-    baseRotation,
-    baseOpacity,
-    rotationEnd,
-    wordAnimationEnd,
-    blurStrength,
-  ]);
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+    }
+  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength])
 
   return (
-    <h2 ref={containerRef} className={`scroll-reveal  ${containerClassName}`}>
+    <h2 ref={containerRef} className={`scroll-reveal ${containerClassName}`}>
       <p className={`scroll-reveal-text ${textClassName}`}>{splitText}</p>
     </h2>
-  );
-};
+  )
+}
 
-export default ScrollReveal;
+export default ScrollReveal

@@ -86,17 +86,7 @@ export default function ProjectsSection() {
       ref={sectionRef}
       className="relative py-24 overflow-hidden bg-black/10 dark:bg-white/5"
     >
-      {/* Custom animated cursor */}
-      {/* <AnimatePresence>
-        <motion.div
-          className="fixed border-2 rounded-full pointer-events-none z-50 mix-blend-difference hidden md:block"
-          variants={cursorVariants}
-          animate={cursorVariant}
-          transition={{ type: "spring", stiffness: 500, damping: 28, mass: 0.5 }}
-        />
-      </AnimatePresence> */}
 
-      {/* Background elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <svg width="100%" height="100%" className="absolute inset-0 opacity-30">
           <defs>
@@ -175,7 +165,7 @@ export default function ProjectsSection() {
                 },
               }}
             >
-              <h2 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 pb-2">
+              <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 pb-2">
                 Selected Work
               </h2>
               <p className="text-lg text-gray-400 max-w-xl">
@@ -184,31 +174,6 @@ export default function ProjectsSection() {
               </p>
             </motion.div>
 
-            {/* <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={controls}
-              variants={{
-                visible: { 
-                  opacity: 1,
-                  scale: 1,
-                  transition: { duration: 0.5, delay: 0.4 } 
-                }
-              }}
-              className="flex gap-3"
-            >
-              {projects.map((project, idx) => (
-                <motion.button
-                  key={`nav-${idx}`}
-                  className="w-3 h-12 rounded-full transition-all duration-500"
-                  style={{ 
-                    backgroundColor: selectedId === project.id ? project.color : 'currentColor',
-                    opacity: selectedId === project.id ? 1 : 0.3,
-                  }}
-                  onClick={() => setSelectedId(project.id)}
-                  whileHover={{ opacity: 0.8, scale: 1.1 }}
-                />
-              ))}
-            </motion.div> */}
           </div>
         </motion.div>
 

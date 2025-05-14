@@ -8,7 +8,7 @@ export function SpotifyPlayer() {
 
   return (
     <motion.div
-      className="h-[300px] overflow-hidden rounded-lg"
+      className="h-[200px] overflow-hidden rounded-lg"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
