@@ -90,7 +90,7 @@ export function Footer() {
                 "TypeScript",
                 "TailwindCSS",
                 "Node.js",
-                "GraphQL",
+                "React Native",
               ].map((tech) => (
                 <span
                   key={tech}

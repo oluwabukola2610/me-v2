@@ -1,32 +1,51 @@
 [
   {
     "id": 1,
+    "title": "Loger - A SaaS landing page",
+    "description": "A modern SaaS landing page designed for a real estate platform that connects agents and clients",
+    "image": "/Macbook-Air-loger.africa.png",
+    "tags": ["Next.js", "Tailwind CSS", "Framer Motion"],
+    "github": "https://github.com/oluwabukola2610",
+    "live": "https://loger.africa/",
+    "color": "#8b5cf6"
+  },
+  {
+    "id": 2,
+    "title": "Pursfi- Revolutionizing Digital Payments",
+    "description": "Pursfi is a modern financial platform designed to streamline and secure your digital transactions. Whether you're an individual or a business.",
+    "image": "/Macbook-Air-pursfi-home.vercel.app.png",
+    "tags": ["Next.js", "Tailwind CSS", "Framer Motion"],
+    "live": "https://pursfi-home.vercel.app/",
+    "color": "#8b5cf6"
+  },
+  {
+    "id": 3,
     "title": "Swiftvia - Landing Page",
     "description": "A sleek, conversion-focused landing page with smooth animations, responsive layout, and modern aesthetics for a logistics service.",
-    "image": "/iPhone-12-PRO-swiftvia.com.png",
+    "image": "/Macbook-Air-swiftvia.com.png",
     "tags": ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
     "github": "https://github.com/oluwabukola2610",
     "live": "https://swiftvia.com/",
     "color": "#8b5cf6"
   },
   {
-    "id": 2,
+    "id": 4,
+    "title": "Itini.ai - AI-powered experience planner ",
+    "description": "Itini is an AI-powered experience planner designed to help users effortlessly organize their travel and event itineraries.",
+    "image": "/Macbook-Air-itini.ai.png",
+    "tags": ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
+    "github": "https://github.com/oluwabukola2610",
+    "live": "https://itini.ai/",
+    "color": "#8b5cf6"
+  },
+  {
+    "id": 5,
     "title": "Buzzdrop.ai Landing Page",
     "description": "Futuristic landing page for an AI startup with interactive elements and 3D graphics.",
-    "image": "/iPhone-12-PRO-buzzdrop-ai.vercel.app.png",
+    "image": "/Macbook-Air-buzzdrop-ai.vercel.app.png",
     "tags": ["Nextjs", "framer-motion", "Tailwind CSS", "TypeScript"],
     "github": "https://github.com/oluwabukola2610",
     "live": "https://buzzdrop-ai.vercel.app/",
     "color": "#06b6d4"
-  },
-  {
-    "id": 3,
-    "title": "Loger - A SaaS landing page",
-    "description": "A modern SaaS landing page designed for a real estate platform that connects agents and clients",
-    "image": "/iPhone-12-PRO-loger.africa.png",
-    "tags": ["Next.js", "Tailwind CSS", "Framer Motion"],
-    "github": "https://github.com/oluwabukola2610",
-    "live": "https://loger.africa/",
-    "color": "#8b5cf6"
   }
 ]
