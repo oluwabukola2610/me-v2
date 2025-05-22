@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Music2 } from "lucide-react"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Music2 } from "lucide-react";
 
 export function SpotifyPlayer() {
-  const [isLoaded, setIsLoaded] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <motion.div
@@ -33,17 +33,20 @@ export function SpotifyPlayer() {
             </div>
           )}
           <iframe
-            src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&theme=0"
+            src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?theme=0"
             width="100%"
             height="100%"
             frameBorder="0"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
             onLoad={() => setIsLoaded(true)}
-            className={`${isLoaded ? "opacity-100" : "opacity-0"} transition-opacity duration-300`}
-          ></iframe>
+            style={{ zIndex: 1 }}
+            className={`${
+              isLoaded ? "opacity-100" : "opacity-0"
+            } transition-opacity duration-300`}
+          />
         </div>
       </div>
     </motion.div>
-  )
+  );
 }

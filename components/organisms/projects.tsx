@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { SectionHeading } from "../atoms/section-heading";
 import projects from "@/data/project.json";
+import Link from "next/link";
 
 export default function ProjectsSection() {
   const [selectedId, setSelectedId] = useState<number | null>(null);
@@ -34,10 +35,7 @@ export default function ProjectsSection() {
   const controls = useAnimation();
 
   useEffect(() => {
-    // Initialize animation on mount
     controls.start("visible");
-
-    // Cursor position tracking
     const moveCursor = (e: MouseEvent) => {
       if (sectionRef.current) {
         const rect = sectionRef.current.getBoundingClientRect();
@@ -86,7 +84,6 @@ export default function ProjectsSection() {
       ref={sectionRef}
       className="relative py-24 overflow-hidden bg-black/10 dark:bg-white/5"
     >
-
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <svg width="100%" height="100%" className="absolute inset-0 opacity-30">
           <defs>
@@ -173,7 +170,6 @@ export default function ProjectsSection() {
                 projects.
               </p>
             </motion.div>
-
           </div>
         </motion.div>
 
@@ -293,7 +289,6 @@ function ProjectCard({
         }}
         transition={{ duration: 0.2 }}
       >
-        {/* Background image with overlay */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.img
             src={project.image}
@@ -306,7 +301,6 @@ function ProjectCard({
           <motion.div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
         </div>
 
-        {/* Content overlay */}
         <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
           <motion.div
             variants={{
@@ -373,7 +367,6 @@ function ProjectCard({
           </motion.div>
         </div>
 
-        {/* 3D effect corner */}
         <motion.div
           className="absolute top-4 right-4 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-md z-30"
           style={{
@@ -388,7 +381,6 @@ function ProjectCard({
         </motion.div>
       </motion.div>
 
-      {/* Reflection effect */}
       <motion.div
         className="absolute inset-0 top-[98%] -z-10 opacity-20 blur-sm rounded-2xl overflow-hidden"
         style={{
@@ -417,14 +409,12 @@ function ExpandedProject({
   const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
-    // Lock body scroll when modal is open
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "auto";
     };
   }, []);
 
-  // Animate in sequence
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -489,7 +479,6 @@ function ExpandedProject({
         exit="exit"
         ref={contentRef}
       >
-        {/* Image section */}
         <motion.div
           className="w-full md:w-1/2 h-64 md:h-auto relative overflow-hidden"
           variants={itemVariants}
@@ -539,7 +528,6 @@ function ExpandedProject({
           </motion.div>
         </motion.div>
 
-        {/* Content section */}
         <motion.div
           className="w-full md:w-1/2 p-6 md:p-12 flex flex-col"
           variants={itemVariants}
@@ -567,8 +555,8 @@ function ExpandedProject({
           >
             <p className="text-gray-300 leading-relaxed mb-6">
               {project.description} This expanded view provides more details
-              about the project, including the design process,
-              implemented, and technologies used.
+              about the project, including the design process, implemented, and
+              technologies used.
             </p>
 
             <h3 className="text-xl font-bold text-white mt-8 mb-4 flex items-center gap-2">
@@ -600,35 +588,47 @@ function ExpandedProject({
             variants={itemVariants}
           >
             <Button
-              className="gap-2 px-6 py-5 text-base"
+              asChild
+              className="gap-2 text-base"
               style={{ backgroundColor: project.color }}
-              onMouseEnter={() => setCursorVariant("button")}
-              onMouseLeave={() => setCursorVariant("default")}
             >
-              <ExternalLink size={18} />
-              <span>Visit Live Site</span>
-              <motion.div
-                initial={{ x: 0 }}
-                animate={{ x: [0, 5, 0] }}
-                transition={{
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 1.5,
-                  repeatDelay: 1,
-                }}
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
               >
-                <ArrowRight size={18} />
-              </motion.div>
+                <ExternalLink size={18} />
+                <span>Visit Live Site</span>
+                <motion.div
+                  initial={{ x: 0 }}
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    duration: 1.5,
+                    repeatDelay: 1,
+                  }}
+                >
+                  <ArrowRight size={18} />
+                </motion.div>
+              </a>
             </Button>
 
             <Button
               variant="outline"
+              asChild
               className="gap-2 bg-white/5 border-white/20 text-white hover:bg-white/10 px-6 py-5 text-base"
-              onMouseEnter={() => setCursorVariant("button")}
-              onMouseLeave={() => setCursorVariant("default")}
             >
-              <Github size={18} />
-              <span>View Code</span>
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <Github size={18} />
+                <span>View Code</span>
+              </a>
             </Button>
           </motion.div>
         </motion.div>
