@@ -17,7 +17,6 @@ import {
   Heart,
   ChevronUp,
 } from "lucide-react";
-import { LikesCounter } from "@/components/molecules/likes-counter";
 import { SpotifyPlayer } from "@/components/molecules/spotify-player";
 
 export function Footer() {
