@@ -9,8 +9,19 @@
     "live": "https://loger.africa/",
     "color": "#8b5cf6"
   },
+   {
+  "id": 2,
+  "title": "SkillNest - Empowering Knowledge Exchange",
+  "description": "SkillNest is a polished SaaS landing page built for a platform that enables seamless peer-to-peer skill-sharing. Designed with modern UX in mind, it targets creators, instructors, and learners looking to connect through curated learning experiences.",
+  "image": "/image.png",
+  "tags": ["Next.js", "Tailwind CSS", "Framer Motion"],
+  "github": "https://github.com/oluwabukola2610",
+  "live": "https://skillnest-v1.vercel.app/",
+  "color": "#8b5cf6"
+}
+,
   {
-    "id": 2,
+    "id": 3,
     "title": "Pursfi- Revolutionizing Digital Payments",
     "description": "Pursfi is a modern financial platform designed to streamline and secure your digital transactions. Whether you're an individual or a business.",
     "image": "/Macbook-Air-pursfi-home.vercel.app.png",
@@ -19,7 +30,7 @@
     "color": "#8b5cf6"
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "Swiftvia - Landing Page",
     "description": "A sleek, conversion-focused landing page with smooth animations, responsive layout, and modern aesthetics for a logistics service.",
     "image": "/Macbook-Air-swiftvia.com.png",
@@ -29,7 +40,7 @@
     "color": "#8b5cf6"
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "Itini.ai - AI-powered experience planner ",
     "description": "Itini is an AI-powered experience planner designed to help users effortlessly organize their travel and event itineraries.",
     "image": "/Macbook-Air-itini.ai.png",
@@ -39,7 +50,7 @@
     "color": "#8b5cf6"
   },
   {
-    "id": 5,
+    "id": 6,
     "title": "Buzzdrop.ai Landing Page",
     "description": "Futuristic landing page for an AI startup with interactive elements and 3D graphics.",
     "image": "/Macbook-Air-buzzdrop-ai.vercel.app.png",

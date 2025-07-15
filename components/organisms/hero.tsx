@@ -1,31 +1,73 @@
-"use client"
-
-import { motion } from "framer-motion"
-import Image from "next/image"
-import { SocialLinks } from "@/components/molecules/social-links"
+"use client";
+import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
+import { SocialLinks } from "@/components/molecules/social-links";
+import profile1 from "@/public/profile.jpg";
+import profile2 from "@/public/profile2.jpg";
+import profile3 from "@/public/profile3.jpg";
+import { useEffect, useState } from "react";
+import { Badge } from "../ui/badge";
+const profileImages = [
+  {
+    src: profile1,
+    alt: "Roheemoh - Professional portrait",
+    title: "Creative Vision",
+  },
+  {
+    src: profile2,
+    alt: "Roheemoh - Developer at work",
+    title: "Technical Excellence",
+  },
+  {
+    src: profile3,
+    alt: "Roheemoh - Innovation mindset",
+    title: "Future Forward",
+  },
+];
 
 export function Hero() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  useEffect(() => {
+    if (!isHovered) {
+      const interval = setInterval(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % profileImages.length);
+      }, 6000);
+      return () => clearInterval(interval);
+    }
+  }, [isHovered]);
+
+  const floatingAnimation = {
+    y: [-10, 10, -10],
+    rotate: [-2, 2, -2],
+    transition: {
+      duration: 7,
+      repeat: Infinity,
+      ease: "easeInOut" as const,
+    },
+  };
   return (
-    <section id="home" className="relative flex min-h-screen flex-col justify-center px-6 pt-20 md:px-12">
+    <section
+      id="home"
+      className="relative flex min-h-screen flex-col justify-center px-6 pt-20 md:px-12"
+    >
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-4 flex items-center gap-2"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex items-center gap-3"
         >
-          <motion.div
-            className="flex h-6 w-6 items-center justify-center rounded-full bg-green-400/20"
-            animate={{ rotate: [0, 10, 0] }}
-            transition={{
-              repeat: Number.POSITIVE_INFINITY,
-              duration: 2,
-              ease: "easeInOut",
-            }}
-          >
-            <span className="text-sm">👋</span>
-          </motion.div>
-          <span className="text-sm">Hey! It&apos;s me Roheemoh.</span>
+          <Badge className="px-4 py-2 text-sm bg-[hsl(142_76%_45%_/_0.1)] text-[hsl(142_76%_45%)] border-[hsl(142_76%_45%_/_0.3)]">
+            <motion.span
+              animate={{ rotate: [0, 14, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="mr-2"
+            >
+              👋
+            </motion.span>
+            Hey! It's me Roheemoh
+          </Badge>
         </motion.div>
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_320px]">
@@ -37,7 +79,9 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.1 }}
             >
               <span className="block">Crafting</span>
-              <span className="block text-green-400">purpose driven experiences</span>
+              <span className="block text-green-400">
+                purpose driven experiences
+              </span>
               <span className="block">that inspire & engage.</span>{" "}
             </motion.h1>
 
@@ -52,49 +96,114 @@ export function Hero() {
           </div>
 
           <motion.div
-            className="flex flex-col lg:items-end justify-center lg:justify-end"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative flex justify-center lg:justify-end"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
-            <div className="relative mb-6 lg:mb-8">
+            <motion.div
+              className="absolute -inset-6 rounded-2xl bg-gradient-to-r from-primary/20 to-accent/20 blur-3xl"
+              animate={{
+                scale: [1, 1.1, 1],
+                opacity: [0.5, 0.8, 0.5],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+
+            <div className="relative">
               <motion.div
-                className="absolute -left-3 -top-3 h-full w-full rounded-2xl border-2 border-green-400/30"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.7 }}
+                className="absolute -left-4 -top-4 w-full h-full rounded-2xl border-2 border-primary/30"
+                animate={{
+                  borderColor: [
+                    "hsl(var(--primary) / 0.3)",
+                    "hsl(var(--accent) / 0.5)",
+                    "hsl(var(--primary) / 0.3)",
+                  ],
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              />
+              <div className="relative w-80 h-96 rounded-2xl overflow-hidden bg-card/50 backdrop-blur-sm border border-border/50 elegant-shadow">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentImageIndex}
+                    initial={{ opacity: 0, scale: 1.1 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={profileImages[currentImageIndex].src}
+                      alt={profileImages[currentImageIndex].alt}
+                      className="w-full h-full object-cover"
+                      width={300}
+                      height={400}
+                    />
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 }}
+                      className="absolute bottom-4 left-4 right-4"
+                    >
+                      <p>{profileImages[currentImageIndex].title}</p>
+                    </motion.div>
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* <div className="absolute bottom-4 right-4 flex gap-2">
+                  {profileImages.map((_, index) => (
+                    <motion.button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-all ${
+                        index === currentImageIndex
+                          ? "bg-primary"
+                          : "bg-muted-foreground/50"
+                      }`}
+                      whileHover={{ scale: 1.2 }}
+                      whileTap={{ scale: 0.9 }}
+                    />
+                  ))}
+                </div> */}
+              </div>
+              <motion.div
+                className="absolute -right-2 top-8 w-6 h-6 rounded-full bg-primary/40"
+                animate={{
+                  y: [-5, 5, -5],
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                }}
               />
               <motion.div
-                className="relative overflow-hidden rounded-2xl border border-gray-700/50 bg-gray-900/50 shadow-xl"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
-                <Image
-                  src="/Profile.JPG"
-                  width={320}
-                  height={400}
-                  alt="Roheemoh - Professional portrait"
-                  className="h-auto w-full object-cover"
-                  priority
-                />
-                <motion.div
-                  className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/80 to-transparent"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.8 }}
-                />
-              </motion.div>
+                className="absolute -left-2 bottom-12 w-4 h-4 rounded-full bg-accent/60"
+                animate={{
+                  y: [5, -5, 5],
+                  scale: [1.2, 1, 1.2],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 2,
+                }}
+              />
             </div>
-            <p className="max-w-md text-gray-400">
-              I work with brands globally to build pixel-perfect, engaging, and accessible digital experiences that
-              drive results and achieve business goals.
-            </p>
           </motion.div>
         </div>
       </div>
-
-  
     </section>
-  )
+  );
 }
