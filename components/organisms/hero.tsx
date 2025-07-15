@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { Badge } from "../ui/badge";
 const profileImages = [
   {
-    src: "/profile.jpg",
+    src: "/profile1.jpeg",
     alt: "Roheemoh - Professional portrait",
     title: "Creative Vision",
   },
@@ -16,7 +16,7 @@ const profileImages = [
     title: "Technical Excellence",
   },
   {
-    src: "/profile3.jpg",
+    src: "/profile3.JPG",
     alt: "Roheemoh - Innovation mindset",
     title: "Future Forward",
   },
