@@ -9,21 +9,22 @@ import { useEffect, useState } from "react";
 import { Badge } from "../ui/badge";
 const profileImages = [
   {
-    src: profile1,
+    src: "/profile.jpg",
     alt: "Roheemoh - Professional portrait",
     title: "Creative Vision",
   },
   {
-    src: profile2,
+    src: "/profile2.jpg",
     alt: "Roheemoh - Developer at work",
     title: "Technical Excellence",
   },
   {
-    src: profile3,
+    src: "/profile3.jpg",
     alt: "Roheemoh - Innovation mindset",
     title: "Future Forward",
   },
 ];
+
 
 export function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
