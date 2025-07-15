@@ -16,7 +16,7 @@ const profileImages = [
     title: "Technical Excellence",
   },
   {
-    src: "/profile3.JPG",
+    src: "/profile3.jpeg",
     alt: "Roheemoh - Innovation mindset",
     title: "Future Forward",
   },
