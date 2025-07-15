@@ -2,9 +2,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { SocialLinks } from "@/components/molecules/social-links";
-import profile1 from "@/profile.jpg";
-import profile2 from "@/profile2.jpg";
-import profile3 from "@/profile3.jpg";
 import { useEffect, useState } from "react";
 import { Badge } from "../ui/badge";
 const profileImages = [
