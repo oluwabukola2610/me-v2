@@ -38,12 +38,13 @@ export function About() {
           blurStrength={8}
           textClassName="text-gray-400 text-base leading-relaxed"
         >
-          I'm Roheemoh, a dedicated Frontend Developer with a strong focus on
-          React.js and a growing interest in backend technologies. I thrive at
-          the intersection of design and functionality, turning creative ideas
-          into smooth, responsive, and accessible user experiences. Clean code,
-          performance optimization, and a sharp eye for detail are my standards
-          because every pixel and every line of code matters.
+          I'm Roheemoh, a Frontend Developer passionate about crafting fast,
+          accessible, and engaging digital experiences. I specialize in React.js
+          and focus on clean code, solid architecture, and scalable patterns,
+          because great products are built on strong foundations, not just
+          shipped features. One highlight, I improved a client’s load time by
+          65% by rethinking their component structure, creating a solution
+          that’s both performant today and easy to evolve tomorrow.
         </ScrollReveal>
       </div>
     </section>

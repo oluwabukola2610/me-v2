@@ -566,8 +566,15 @@ function ExpandedProject({
               />
               Key Features
             </h3>
-
-            <ul className="space-y-2 mb-8">
+{
+  project.keyFeatures.map((feature) => (
+    <div key={feature} className="flex items-start gap-2">
+      <Plus size={16} className="mt-1 text-white/70" />
+      <span>{feature}</span>
+    </div>
+  ))
+}
+            {/* <ul className="space-y-2 mb-8">
               <li className="flex items-start gap-2">
                 <Plus size={16} className="mt-1 text-white/70" />
                 <span>Responsive design optimized for all devices</span>
@@ -580,7 +587,7 @@ function ExpandedProject({
                 <Plus size={16} className="mt-1 text-white/70" />
                 <span>Optimized performance and accessibility</span>
               </li>
-            </ul>
+            </ul> */}
           </motion.div>
 
           <motion.div

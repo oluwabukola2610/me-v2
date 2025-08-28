@@ -102,7 +102,7 @@ export function Footer() {
             </div>
           </motion.div>
 
-          <SpotifyPlayer />
+          {/* <SpotifyPlayer /> */}
         </div>
         <div className=" border-t border-gray-800 pt-6 text-center text-sm text-gray-400">
           <p>© {new Date().getFullYear()} Oluwabukola. All rights reserved.</p>

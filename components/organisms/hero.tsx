@@ -4,28 +4,48 @@ import Image from "next/image";
 import { SocialLinks } from "@/components/molecules/social-links";
 import { useEffect, useState } from "react";
 import { Badge } from "../ui/badge";
+
 const profileImages = [
   {
     src: "/profile1.jpeg",
-    alt: "Roheemoh - Professional portrait",
+    alt: "Mudashir Roheemoh - Professional portrait showcasing creative vision",
     title: "Creative Vision",
+    blurDataURL: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0eH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/2gAMAwEAAhEDEQA/AKrAAAAA7Z//2Q==",
   },
   {
-    src: "/profile2.jpg",
-    alt: "Roheemoh - Developer at work",
+    src: "/profile2.jpg", 
+    alt: "Mudashir Roheemoh - Developer working with modern technologies",
     title: "Technical Excellence",
+    blurDataURL: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0eH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/2gAMAwEAAhEDEQA/AKrAAAAA7Z//2Q==",
   },
   {
     src: "/profile3.jpeg",
-    alt: "Roheemoh - Innovation mindset",
-    title: "Future Forward",
+    alt: "Mudashir Roheemoh - Innovation-focused frontend developer",
+    title: "Future Forward", 
+    blurDataURL: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0eH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/2gAMAwEAAhEDEQA/AKrAAAAA7Z//2Q==",
   },
 ];
-
 
 export function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState<boolean[]>([false, false, false]);
+
+  // Preload all images
+  useEffect(() => {
+    profileImages.forEach((img, index) => {
+      const imageElement = new window.Image();
+      imageElement.onload = () => {
+        setImageLoaded(prev => {
+          const newState = [...prev];
+          newState[index] = true;
+          return newState;
+        });
+      };
+      imageElement.src = img.src;
+    });
+  }, []);
+
   useEffect(() => {
     if (!isHovered) {
       const interval = setInterval(() => {
@@ -35,20 +55,25 @@ export function Hero() {
     }
   }, [isHovered]);
 
-  const floatingAnimation = {
-    y: [-10, 10, -10],
-    rotate: [-2, 2, -2],
-    transition: {
-      duration: 7,
-      repeat: Infinity,
-      ease: "easeInOut" as const,
-    },
-  };
   return (
     <section
       id="home"
       className="relative flex min-h-screen flex-col justify-center px-6 pt-20 md:px-12"
     >
+      <div className="hidden">
+        {profileImages.map((img, index) => (
+          <Image
+            key={`preload-${index}`}
+            src={img.src}
+            alt=""
+            width={320}
+            height={400}
+            priority={index === 0}
+            sizes="(max-width: 768px) 280px, 320px"
+          />
+        ))}
+      </div>
+
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -80,7 +105,7 @@ export function Hero() {
               <span className="block text-green-400">
                 purpose driven experiences
               </span>
-              <span className="block">that inspire & engage.</span>{" "}
+              <span className="block">that inspire & engage.</span>
             </motion.h1>
 
             <motion.div
@@ -103,10 +128,10 @@ export function Hero() {
           >
             <motion.div
               className="absolute -inset-6 rounded-2xl bg-gradient-to-r from-primary/20 to-accent/20 blur-3xl"
-              animate={{
+              animate={imageLoaded[currentImageIndex] ? {
                 scale: [1, 1.1, 1],
                 opacity: [0.5, 0.8, 0.5],
-              }}
+              } : {}}
               transition={{
                 duration: 4,
                 repeat: Infinity,
@@ -120,12 +145,13 @@ export function Hero() {
                 animate={{
                   borderColor: [
                     "hsl(var(--primary) / 0.3)",
-                    "hsl(var(--accent) / 0.5)",
+                    "hsl(var(--accent) / 0.5)", 
                     "hsl(var(--primary) / 0.3)",
                   ],
                 }}
                 transition={{ duration: 3, repeat: Infinity }}
               />
+              
               <div className="relative w-80 h-96 rounded-2xl overflow-hidden bg-card/50 backdrop-blur-sm border border-border/50 elegant-shadow">
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -139,24 +165,56 @@ export function Hero() {
                     <Image
                       src={profileImages[currentImageIndex].src}
                       alt={profileImages[currentImageIndex].alt}
-                      className="w-full h-full object-cover"
-                      width={300}
+                      className="w-full h-full object-cover transition-transform duration-500"
+                      width={320}
                       height={400}
+                      priority={currentImageIndex === 0}
+                      quality={85}
+                      sizes="(max-width: 768px) 280px, 320px"
+                      placeholder="blur"
+                      blurDataURL={profileImages[currentImageIndex].blurDataURL}
+                      onLoad={() => {
+                        setImageLoaded(prev => {
+                          const newState = [...prev];
+                          newState[currentImageIndex] = true;
+                          return newState;
+                        });
+                      }}
                     />
 
+                    {/* Gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                    
+                    {/* Title with loading state */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
+                      animate={{ 
+                        opacity: imageLoaded[currentImageIndex] ? 1 : 0.7, 
+                        y: 0 
+                      }}
                       transition={{ delay: 0.3 }}
                       className="absolute bottom-4 left-4 right-4"
                     >
-                      <p>{profileImages[currentImageIndex].title}</p>
+                      <p className="text-white font-medium">
+                        {profileImages[currentImageIndex].title}
+                      </p>
                     </motion.div>
                   </motion.div>
                 </AnimatePresence>
 
-                {/* <div className="absolute bottom-4 right-4 flex gap-2">
+                {/* Loading indicator */}
+                {!imageLoaded[currentImageIndex] && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-muted/50">
+                    <motion.div
+                      className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full"
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                    />
+                  </div>
+                )}
+
+                {/* Image indicators */}
+                <div className="absolute bottom-4 right-4 flex gap-2">
                   {profileImages.map((_, index) => (
                     <motion.button
                       key={index}
@@ -168,10 +226,13 @@ export function Hero() {
                       }`}
                       whileHover={{ scale: 1.2 }}
                       whileTap={{ scale: 0.9 }}
+                      aria-label={`View ${profileImages[index].title} image`}
                     />
                   ))}
-                </div> */}
+                </div>
               </div>
+
+              {/* Floating elements */}
               <motion.div
                 className="absolute -right-2 top-8 w-6 h-6 rounded-full bg-primary/40"
                 animate={{

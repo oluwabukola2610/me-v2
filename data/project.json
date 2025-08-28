@@ -1,62 +1,74 @@
 [
   {
     "id": 1,
-    "title": "Loger - A SaaS landing page",
-    "description": "A modern SaaS landing page designed for a real estate platform that connects agents and clients",
+    "title": "Loger - Real Estate SaaS Platform",
+    "description": "A modern SaaS landing page for a real estate platform connecting agents and clients. Features interactive property search, agent showcases, and conversion-optimized contact forms with smooth animations.",
     "image": "/Macbook-Air-loger.africa.png",
-    "tags": ["Next.js", "Tailwind CSS", "Framer Motion"],
+    "tags": ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript", "React Hook Form"],
     "github": "https://github.com/oluwabukola2610",
     "live": "https://loger.africa/",
-    "color": "#8b5cf6"
+    "color": "#8b5cf6",
+    "challenges": "Optimized for real estate lead generation with complex filtering systems and responsive design across all devices",
+    "keyFeatures": ["Lead capture optimization", "Interactive property previews", "Agent portfolio showcase", "Mobile-first responsive design"]
   },
-   {
-  "id": 2,
-  "title": "SkillNest - Empowering Knowledge Exchange",
-  "description": "SkillNest is a polished SaaS landing page built for a platform that enables seamless peer-to-peer skill-sharing. Designed with modern UX in mind, it targets creators, instructors, and learners looking to connect through curated learning experiences.",
-  "image": "/image.png",
-  "tags": ["Next.js", "Tailwind CSS", "Framer Motion"],
-  "github": "https://github.com/oluwabukola2610",
-  "live": "https://skillnest-v1.vercel.app/",
-  "color": "#8b5cf6"
-}
-,
+  {
+    "id": 2,
+    "title": "Lily - Fintech Investment & Savings App",
+    "description": "A comprehensive mobile fintech application built with React Native and Expo, designed to democratize investment and savings for everyday users. The app features secure user authentication, real-time investment tracking, automated savings goals, and portfolio management tools.",
+    "image": "/IMG_0730.jpg",
+    "tags": ["React Native", "Expo", "TypeScript", "Redux Toolkit", "React Navigation", "Async Storage"],
+    "github": "https://github.com/oluwabukola2610",
+    "live": "https://www.lily.com.ng/",
+    "color": "#10b981",
+    "challenges": "Implementing secure financial transactions, real-time data synchronization, and creating an intuitive UX for complex financial concepts",
+    "keyFeatures": ["Biometric authentication", "Real-time portfolio tracking", "Automated savings", "Investment recommendations", "Financial education modules"]
+  },
   {
     "id": 3,
-    "title": "Pursfi- Revolutionizing Digital Payments",
-    "description": "Pursfi is a modern financial platform designed to streamline and secure your digital transactions. Whether you're an individual or a business.",
-    "image": "/Macbook-Air-pursfi-home.vercel.app.png",
-    "tags": ["Next.js", "Tailwind CSS", "Framer Motion"],
-    "live": "https://pursfi-home.vercel.app/",
-    "color": "#8b5cf6"
+    "title": "Ratokunbo - Secondhand Goods Marketplace",
+    "description": "A React Native marketplace app for buying and selling secondhand goods. Features advanced search, real-time chat, location-based discovery, secure payments, and rating system.",
+    "image": "/IMG_0731.jpg",
+    "tags": ["React Native", "Expo", "TypeScript", "Redux Toolkit", "Expo Camera", "Push Notifications", "Maps Integration"],
+    "github": "https://github.com/oluwabukola2610",
+    "live": "https://apps.apple.com/ng/app/ratokunbo/id6478985438",
+    "color": "#f59e0b",
+    "challenges": "Building a trust system for P2P transactions, implementing efficient image handling, and creating seamless chat functionality",
+    "keyFeatures": ["Advanced product search", "In-app messaging", "Location-based discovery", "Secure payment processing", "Rating & review system", "Multi-image uploads"]
   },
   {
     "id": 4,
-    "title": "Swiftvia - Landing Page",
-    "description": "A sleek, conversion-focused landing page with smooth animations, responsive layout, and modern aesthetics for a logistics service.",
-    "image": "/Macbook-Air-swiftvia.com.png",
-    "tags": ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
-    "github": "https://github.com/oluwabukola2610",
-    "live": "https://swiftvia.com/",
-    "color": "#8b5cf6"
+    "title": "Pursfi - Digital Payment Platform",
+    "description": "A modern fintech platform for streamlined digital transactions. Features multi-currency support, real-time tracking, advanced security, and serves both individual users and businesses.",
+    "image": "/Macbook-Air-pursfi-home.vercel.app.png",
+    "tags": ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript", "Chart.js"],
+    "live": "https://pursfi-home.vercel.app/",
+    "color": "#8b5cf6",
+    "challenges": "Designing for financial trust and credibility while maintaining modern aesthetics and ensuring security compliance",
+    "keyFeatures": ["Multi-currency support", "Real-time analytics dashboard", "Advanced security features", "Business & personal accounts", "API documentation"]
   },
   {
     "id": 5,
-    "title": "Itini.ai - AI-powered experience planner ",
-    "description": "Itini is an AI-powered experience planner designed to help users effortlessly organize their travel and event itineraries.",
-    "image": "/Macbook-Air-itini.ai.png",
-    "tags": ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
+    "title": "Swiftvia - Logistics & Delivery Platform",
+    "description": "A conversion-optimized landing page for a logistics service. Features smooth animations, responsive design, real-time tracking demos, and strategically placed CTAs.",
+    "image": "/Macbook-Air-swiftvia.com.png",
+    "tags": ["React", "Next.js", "Tailwind CSS", "Framer Motion", "React Hook Form"],
     "github": "https://github.com/oluwabukola2610",
-    "live": "https://itini.ai/",
-    "color": "#8b5cf6"
+    "live": "https://swiftvia.com/",
+    "color": "#ef4444",
+    "challenges": "Creating high-converting design that communicates speed and reliability while maintaining professional credibility",
+    "keyFeatures": ["Conversion-optimized design", "Interactive service showcase", "Real-time tracking demo", "Business solutions presentation"]
   },
   {
     "id": 6,
-    "title": "Buzzdrop.ai Landing Page",
-    "description": "Futuristic landing page for an AI startup with interactive elements and 3D graphics.",
-    "image": "/Macbook-Air-buzzdrop-ai.vercel.app.png",
-    "tags": ["Nextjs", "framer-motion", "Tailwind CSS", "TypeScript"],
+    "title": "Itini.ai - AI Travel Experience Planner",
+    "description": "An AI-powered travel planning platform that creates personalized itineraries. Features smart recommendations, collaborative planning, real-time pricing integration, and interactive maps.",
+    "image": "/Macbook-Air-itini.ai.png",
+    "tags": ["React", "Next.js", "Tailwind CSS", "Framer Motion", "OpenAI API", "Maps Integration"],
     "github": "https://github.com/oluwabukola2610",
-    "live": "https://buzzdrop-ai.vercel.app/",
-    "color": "#06b6d4"
+    "live": "https://itini.ai/",
+    "color": "#06b6d4",
+    "challenges": "Integrating AI capabilities with travel APIs while maintaining fast performance and intuitive user experience",
+    "keyFeatures": ["AI-powered recommendations", "Collaborative planning", "Real-time pricing integration", "Interactive maps", "Smart itinerary optimization"]
   }
+  
 ]
